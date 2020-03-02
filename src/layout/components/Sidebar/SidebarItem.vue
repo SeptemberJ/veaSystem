@@ -2,13 +2,6 @@
   <div v-if="!item.hidden">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <div v-if="onlyOneChild.meta.title === '业务看板'" style="width:100%;height:80px;display:block;padding-top:10px;">
-          <img src="../../../assets/images/Logo.png" style="width: 50px;height:auto;display:inline-block;float:left;">
-          <div v-if="opened" style="width:120px;height:30px;margin-left:5px;margin-top:5px;float:left;font-size:14px;color:#fff;display:inline-block;">
-            <span>中运卡行</span>
-            <span style="display:block;">网络货运管理系统</span>
-          </div>
-        </div>
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
           <item :icon="onlyOneChild.meta.icon||(item.meta&&item.meta.icon)" :title="onlyOneChild.meta.title" />
         </el-menu-item>

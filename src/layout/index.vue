@@ -6,6 +6,7 @@
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
         <tags-view v-if="needTagsView" />
+        <curPageBar />
       </div>
       <app-main />
       <!-- <right-panel v-if="showSettings">
@@ -17,7 +18,7 @@
 
 <script>
 // import RightPanel from '@/components/RightPanel'
-import { AppMain, Navbar, Sidebar, TagsView } from './components' // Settings
+import { AppMain, Navbar, Sidebar, TagsView, CurPageBar } from './components' // Settings
 import ResizeMixin from './mixin/ResizeHandler'
 import { mapState } from 'vuex'
 
@@ -29,7 +30,8 @@ export default {
     // RightPanel,
     // Settings,
     Sidebar,
-    TagsView
+    TagsView,
+    CurPageBar
   },
   mixins: [ResizeMixin],
   computed: {

@@ -11,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  min-width: 1280px;
 }
 
 label {
@@ -20,6 +21,7 @@ label {
 html {
   height: 100%;
   box-sizing: border-box;
+  min-width: 1280px;
 }
 
 #app {
@@ -188,4 +190,11 @@ aside {
 
 .multiselect--active {
   z-index: 1000 !important;
+}
+
+//element
+.el-dialog__body{
+}
+label{
+  font-weight: normal;
 }

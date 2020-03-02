@@ -20,6 +20,11 @@ import './utils/error-log' // error log
 import * as filters from './filters' // global filters
 
 import vueSwiper from 'vue-awesome-swiper'
+
+import vuescroll from 'vuescroll'
+import 'vuescroll/dist/vuescroll.css'
+Vue.use(vuescroll)
+
 Vue.use(vueSwiper)
 /**
  * If you don't want to use mock-server

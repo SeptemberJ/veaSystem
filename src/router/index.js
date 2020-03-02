@@ -84,7 +84,7 @@ export const constantRoutes = [
         path: 'businessBoard',
         component: () => import('@/views/businessBoard/index'),
         name: 'BusinessBoard',
-        meta: { title: '业务看板', icon: 'component', affix: true, breadcrumb: false }
+        meta: { title: '业务看板', icon: 'kanban', affix: true, breadcrumb: false }
       }
     ]
   }
@@ -140,6 +140,39 @@ export const asyncRoutes = [
         name: 'container',
         meta: {
           title: '集装箱发货',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/userCenter',
+    component: Layout,
+    redirect: '/userCenter/myInfo',
+    alwaysShow: true,
+    name: 'userCenter',
+    meta: {
+      title: '用户中心',
+      icon: 'user',
+      roles: ['admin', 'editor', 'other']
+    },
+    children: [
+      {
+        path: 'myInfo',
+        component: () => import('@/views/userCenter/myInfo'),
+        name: 'myInfo',
+        meta: {
+          title: '我的资料',
+          roles: ['admin']
+        }
+      },
+      {
+        path: 'wallet',
+        component: () => import('@/views/userCenter/wallet'),
+        name: 'wallet',
+        meta: {
+          title: '我的钱包',
           roles: ['admin']
         }
       }

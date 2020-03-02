@@ -777,6 +777,7 @@ export default {
 @import 'css/style.css';
 @import 'css/responsive.css';
 @import 'https://unpkg.com/swiper/css/swiper.min.css';
+@import 'theme/index.css'
 </style>
 <style lang="scss" scoped>
 #header{
@@ -899,7 +900,7 @@ export default {
   }
 }
 #Carousel{
-  margin-top: 66px;
+  margin-top: 60px;
 }
 #welcome{
   .item_list{
@@ -998,19 +999,19 @@ export default {
     margin-bottom: 40px;
   }
   .item{
-    width:35px;
+    width:50px;
     height:150px;
   }
   .item-container {
     background: #22AC38;
   }
   .item-container img{
-    width:25px;
-    height:25px !important;
-    margin: 5px;
+    width: 38px;
+    height:38px !important;
+    margin: 6px;
   }
   .item .item-container:before{
-    width: 35px;
+    width: 50px;
     content: "";
     position: absolute;
     z-index: -1;
@@ -1039,12 +1040,12 @@ export default {
   }
   .RightCont{
     height:150px;
-    border-left: 1px solid #32bfc0;
+    border-left: 1px solid #22AC38;
     background:#fff;
     position:absolute;
     z-index:99;
     float:right;
-    left:50px;
+    left:65px;
     top:0;
   }
   .RightCont h4{
@@ -1054,6 +1055,26 @@ export default {
     width: 80%;
     padding: 20px 20px 20px 20px;
     font-weight: normal !important;
+  }
+  @media (max-width: 1423px){
+    .item{
+      width:40px;
+      height:200px;
+    }
+    .item-container img{
+      width:30px;
+      height:30px !important;
+      margin: 5px;
+    }
+    .item .item-container:before{
+      width: 40px;
+      height:200px;
+      left: 15px;
+    }
+    .RightCont{
+      left: 55px;
+      height:200px;
+    }
   }
   @media (max-width: 768px){
     .RightCont p{

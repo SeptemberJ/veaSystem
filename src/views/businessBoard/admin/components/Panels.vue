@@ -1,6 +1,6 @@
 <template>
   <el-row :gutter="10" class="panel-group">
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel BlueBorder" @click="handleSetLineChartData('newVisitis')">
         <!-- <div class="card-panel-icon-wrapper icon-people">
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
@@ -8,12 +8,12 @@
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="6" :duration="2600" class="card-panel-num" />
           <div class="card-panel-text">
-            已发布1
+            已发布
           </div>
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel BlueBorder" @click="handleSetLineChartData('messages')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="2" :duration="3000" class="card-panel-num" />
@@ -23,7 +23,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel BlueBorder" @click="handleSetLineChartData('purchases')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3200" class="card-panel-num" />
@@ -33,7 +33,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel BlueBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -43,7 +43,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel OrangeBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -53,7 +53,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel OrangeBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -63,7 +63,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel OrangeBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -73,7 +73,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel GreenBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -83,7 +83,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel GreenBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -93,7 +93,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel GreenBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -103,7 +103,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="8" :lg="4" class="card-panel-col">
+    <el-col :span="4" class="card-panel-col">
       <div class="card-panel RedBorder" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-description">
           <count-to :start-val="0" :end-val="1" :duration="3600" class="card-panel-num" />
@@ -145,10 +145,11 @@ export default {
   border-top: 4px solid #D9001B;
 }
 .panel-group {
-  margin-top: 18px;
+  /*margin-top: 18px;*/
 
   .card-panel-col {
-    margin-bottom: 32px;
+    margin-bottom: 10px;
+    /*margin-bottom: 32px;*/
   }
 
   .card-panel {
@@ -224,13 +225,16 @@ export default {
       .card-panel-text {
         line-height: 18px;
         color: rgba(0, 0, 0, 0.45);
-        font-size: 16px;
+        font-size: 14px;
         margin-top: 12px;
         text-align: center;
+        font-weight: 700;
       }
 
       .card-panel-num {
-        font-size: 20px;
+        font-weight: 400;
+        font-size: 36px;
+        color: #02A7F0;
       }
     }
   }
