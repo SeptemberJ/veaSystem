@@ -4,7 +4,7 @@
       <div class="AvailableBalance">
         <h5>可用余额</h5>
         <div class="TopSumary">
-          <div class="TotalBalance"><span class="IntegralPart">5000.</span><span class="FractionalPart">00</span> 元</div>
+          <div class="TotalBalance"><span class="IntegralPart">5000.</span><span class="FractionalPart">00</span> <span class="Yuan">元</span></div>
           <div class="OptionBlock">
             <div class="Bt Recharge" @click="Recharge">充值</div>
             <div class="Bt CashWithdrawal">提现</div>
@@ -147,11 +147,16 @@ export default {
     width: 100%;
     .Wrap{
       width: 100%;
-      border-bottom: 1px solid #dfdfdf;
+      border-bottom: 1px solid #DFDFDF;
       background: #ffffff;
     }
     .AvailableBalance{
       padding: 20px 40px;
+      h5{
+        font-size: 16px;
+        font-weight: 700;
+        color: #555555;
+      }
       .TopSumary{
         height: 80px;
         line-height: 80px;
@@ -166,6 +171,10 @@ export default {
             font-size: 28px;
             color: $primaryBlue;
           }
+          .Yuan{
+            font-size: 28px;
+            color: #555555;
+          }
         }
         .OptionBlock{
           display: inline-block;
@@ -175,7 +184,7 @@ export default {
             width: 100px;
             height: 34px;
             line-height: 34px;
-            font-size: 13px;
+            font-size: 14px;
             text-align: center;
             display: inline-block;
             float: left;
@@ -184,10 +193,10 @@ export default {
           }
           .Recharge{
             background: $primaryBlue;
-            color: #ffffff;
+            color: #FFFFFF;
           }
           .CashWithdrawal{
-            border: 1px solid #7F7F7F;
+            border: 1px solid #AAAAAA;
             color: #7F7F7F;
             margin-left: 20px;
           }
@@ -206,7 +215,7 @@ export default {
             content: '';
             width: 1px;
             height: 14px;
-            background: #7F7F7F;
+            background: #AAAAAA;
             display: inline-block;
             margin-left: 10px;
             margin-right: 10px;
@@ -215,7 +224,7 @@ export default {
             content: '';
             width: 1px;
             height: 14px;
-            background: #7F7F7F;
+            background: #AAAAAA;
             display: inline-block;
             margin-left: 10px;
             margin-right: 10px;
@@ -226,7 +235,7 @@ export default {
     .BalanceDetail{
       height: 80px;
       padding: 15px 40px;
-      background: #ffffff;
+      background: #FFFFFF;
       .DetailItem{
         width: 100px;
         height: 50px;
@@ -243,6 +252,8 @@ export default {
       }
       .Symbol{
         width: 50px;
+        font-size: 28px;
+        color: #7F7F7F;
         text-align: center;
         line-height: 50px;
         margin-right: 25px;
@@ -251,14 +262,14 @@ export default {
     .Others{
       padding: 20px 40px;
       height: 140px;
-      background: #ffffff;
+      background: #FFFFFF;
       margin-top: 20px;
       .OthersItem{
         width: 100%;
         height: 100px;
         font-size: 14px;
         color: #555555;
-        border-left: 2px solid #dfdfdf;
+        border-left: 2px solid #DFDFDF;
         padding-left: 20px;
         div{
           width: 100%;
@@ -304,7 +315,7 @@ export default {
           width: 100%;
           height: 60px;
           margin: 20px auto;
-          background: #ffffff;
+          background: #FFFFFF;
           .Tabs{
             float: left;
             & span{
@@ -328,7 +339,7 @@ export default {
               width: 120px;
               height: 34px;
               display: inline-block;
-              border: 1px solid #d7d7d7;
+              border: 1px solid #D7D7D7;
               color: #7F7F7F;
               font-size: 13px;
               margin: 13px 20px 13px 0;
@@ -341,7 +352,7 @@ export default {
         .MainBlock{
           padding: 20px;
           margin: 20px auto 10px auto;
-          background: #ffffff;
+          background: #FFFFFF;
           color: #333333;
           .el-button{
             border-radius: 0px;

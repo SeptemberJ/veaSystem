@@ -38,14 +38,14 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: 'http://ep23767307.qicp.vip:31379/haianJK/', // 设置你调用的接口域名和端口号
+        target: 'http://122.51.138.167:8080/yingsu/rest/', // 设置你调用的接口域名和端口号http://ep23767307.qicp.vip:31379/haianJK/
         changeOrigin: true,   // 跨域
         pathRewrite: {
          '^/api': '/'    
         }
        }
-    },
-    before: require('./mock/mock-server.js')
+    }
+    // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

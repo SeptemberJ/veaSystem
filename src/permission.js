@@ -4,18 +4,18 @@ import { Message } from 'element-ui'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { getToken } from '@/utils/auth' // get token from cookie
-// import getPageTitle from '@/utils/get-page-title'
+import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login', '/auth-redirect', '/website'] // no redirect whitelist
+const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // start progress bar
   NProgress.start()
 
   // set page title
-  document.title = '中运卡行'// getPageTitle(to.meta.title)
+  document.title = getPageTitle(to.meta.title)
 
   // determine whether the user has logged in
   const hasToken = getToken()
@@ -25,8 +25,6 @@ router.beforeEach(async(to, from, next) => {
       // if is logged in, redirect to the home page
       next({ path: '/' })
       NProgress.done()
-    } else if (to.path === '/header' || to.path === '/Carousel' || to.path === '/production' || to.path === '/strength' || to.path === '/partner' || to.path === '/download' || to.path === '/aboutUs') {
-      next({ path: '/website' })
     } else {
       // determine whether the user has obtained his permission roles through getInfo
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
@@ -37,9 +35,18 @@ router.beforeEach(async(to, from, next) => {
           // get user info
           // note: roles must be a object array! such as: ['admin'] or ,['developer','editor']
           const { roles } = await store.dispatch('user/getInfo')
+          // const d = {
+          //   roles: ['admin'],
+          //   introduction: 'I am a super administrator',
+          //   avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+          //   name: 'Super Admin'
+          // }
+          // const { roles } = d
+          // debugger
+          // console.log('roles', roles)
 
           // generate accessible routes map based on roles
-          const accessRoutes = await store.dispatch('permission/generateRoutes', roles)
+          const accessRoutes = await store.dispatch('permission/generateRoutes', ['admin'])
 
           // dynamically add accessible routes
           router.addRoutes(accessRoutes)

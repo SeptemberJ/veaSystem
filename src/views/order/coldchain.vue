@@ -1,6 +1,6 @@
 <template>
   <div class="ColdChain">
-    ColdChain
+    冷链发货
   </div>
 </template>
 <script>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.ColdChain{
+  padding: 20px 40px;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="General">
-    General
+    普货发货
   </div>
 </template>
 <script>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.General{
+  padding: 20px 40px;
+}
 </style>

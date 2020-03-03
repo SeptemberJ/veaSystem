@@ -40,7 +40,7 @@ export default {
   .app-main {
     /* 84 = navbar + tags-view = 50 + 34 */
     /* 90 = navbar + tags-view = 50 + 40 */
-    min-height: calc(100vh - 90px - 30px);
+    min-height: calc(100vh - 90px - 40px);
   }
 
   .fixed-header+.app-main {

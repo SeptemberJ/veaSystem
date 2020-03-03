@@ -1,6 +1,17 @@
 <template>
   <div v-show="dialogVisible" class="myDialog myDialog-fade-enter-active">
-    <vue-scroll :ops="ops">
+    <div class="myDialogInner">
+      <div class="myDialogHeader">
+        <span>{{ title }}</span>
+        <svg-icon icon-class="close" @click="closeDialog" />
+      </div>
+      <vue-scroll :ops="ops" class="myDialogBody" style="height:calc(100% - 50px);">
+        <slot />
+      </vue-scroll>
+    </div>
+  </div>
+  <!-- <div v-show="dialogVisible" class="myDialog myDialog-fade-enter-active">
+    <vue-scroll :ops="ops" style="height:calc(100vh - 130px);overflow:hidden;">
       <div class="myDialogInner">
         <div class="myDialogHeader">
           <span>{{ title }}</span>
@@ -11,7 +22,7 @@
         </div>
       </div>
     </vue-scroll>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -73,21 +84,21 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: rgba(85, 85, 85, .5);
     .myDialogInner{
       width: calc(100% - 20px);
-      height: calc(100vh - 140px);
-      overflow-y: auto;
+      height: calc(100vh - 150px); /* 150 = navbar + tags-view + curPageBar + padding * 2 = 50 + 40 + 40 + 20  */
       margin: 10px;
-      background: #f2f2f2;
+      background: #F2F2F2;
+      position: absolute;
       .myDialogHeader{
         height: 35px;
         line-height: 35px;
         font-size: 14px;
         color: #555555;
-        background: #ffffff;
-        border-bottom: 1px solid #dfdfdf;
+        background: #FFFFFF;
+        border-bottom: 1px solid #DFDFDF;
         padding-left: 20px;
         .svg-icon{
           width: 25px;

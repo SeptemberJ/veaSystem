@@ -54,10 +54,11 @@ export default {
 <style lang="scss" scoped>
 .CurPageBar{
   width: 100%;
-  height: 30px;
+  height: 40px;
   background: #D0DADF;
-  font-size: 12px;
-  line-height: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 40px;
   padding-left: 20px;
   span{
     font-size: 20px;

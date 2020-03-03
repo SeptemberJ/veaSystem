@@ -1,11 +1,11 @@
 import axios from 'axios'
-import { MessageBox, Message } from 'element-ui'
+import { Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
@@ -14,12 +14,14 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-
+    config.headers = {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
     if (store.getters.token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
-      config.headers['X-Token'] = getToken()
+      config.headers['X-AUTH-TOKEN'] = getToken()
     }
     return config
   },
@@ -46,26 +48,53 @@ service.interceptors.response.use(
     const res = response.data
 
     // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 20000) {
+    if (response.status !== 200) {
       Message({
         message: res.message || 'Error',
         type: 'error',
-        duration: 5 * 1000
+        duration: 1500
       })
-
-      // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
-        // to re-login
-        MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '确定登出', {
-          confirmButtonText: '重新登录',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          store.dispatch('user/resetToken').then(() => {
-            location.reload()
-          })
+      if (response.status === 401) {
+        Message({
+          message: '很抱歉，登录已过期，请重新登录!',
+          type: 'error',
+          duration: 1500
         })
       }
+      if (response.status === 504) {
+        Message({
+          message: '网络超时!',
+          type: 'error',
+          duration: 1500
+        })
+      }
+      if (response.status === 404) {
+        Message({
+          message: '资源未找到!',
+          type: 'error',
+          duration: 1500
+        })
+      }
+      if (response.status === 403) {
+        Message({
+          message: '拒绝访问!',
+          type: 'error',
+          duration: 1500
+        })
+      }
+
+      // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
+      // if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
+      //   // to re-login
+      //   MessageBox.confirm('您已被登出，请重新登录', '提示', {
+      //     confirmButtonText: '确认',
+      //     type: 'warning'
+      //   }).then(() => {
+      //     store.dispatch('user/resetToken').then(() => {
+      //       location.reload()
+      //     })
+      //   })
+      // }
       return Promise.reject(new Error(res.message || 'Error'))
     } else {
       return res

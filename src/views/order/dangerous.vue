@@ -1,6 +1,6 @@
 <template>
   <div class="Dangerous">
-    Dangerous
+    危化发货
   </div>
 </template>
 <script>
@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.Dangerous{
+  padding: 20px 40px;
+}
 </style>

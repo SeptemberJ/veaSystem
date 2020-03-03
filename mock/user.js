@@ -74,7 +74,7 @@ export default [
 
       return {
         code: 20000,
-        data: info
+        data: {} // info
       }
     }
   },
